@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "757379575334",
+    "project_id": "tp2fredalex",
+    "storage_bucket": "tp2fredalex.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757379575334:android:a3ff48e2abf2e4719800e7",
+        "android_client_info": {
+          "package_name": "com.example.tp2_fred_alex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAttP5_pOkVc_083wmgB_44WAKB3k_qzpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

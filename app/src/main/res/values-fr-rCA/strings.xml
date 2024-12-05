@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP2_Fred_Alex</string>
+    <string name="btn_signup">inscrire</string>
+    <string name="til_courriel">Entrez votre courriel</string>
+    <string name="til_nom">Entrez votre nom</string>
+    <string name="til_mdp">Entrez votre mot de passe</string>
+    <string name="til_confirm_mdp">Confirmez votre mot de passe</string>
+    <string name="tv_connexion">Connexion</string>
+    <string name="til_courriel2">Entrez votre courriel</string>
+    <string name="til_mdp2">Entrez votre mot de passe</string>
+    <string name="button_login">Se connecter</string>
+    <string name="btn_signup2">Créer un compte</string>
+    <string name="tv_nom">Nom complet</string>
+    <string name="et_nom">Nom complet</string>
+    <string name="tv_email">Courriel</string>
+    <string name="et_email">Courriel</string>
+    <string name="btn_modifNom">Modifier nom</string>
+    <string name="btn_modifEmail">Modifier email</string>
+    <string name="tv_affichage">connecte</string>
+    <string name="btn_profile">Afficher profile</string>
+    <string name="btn_deco">Deconnexion profile</string>
+
+
+</resources>
