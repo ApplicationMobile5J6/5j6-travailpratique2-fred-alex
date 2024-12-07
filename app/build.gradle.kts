@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.activity)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
 
     // Test Libraries
     testImplementation("junit:junit:4.13.2")

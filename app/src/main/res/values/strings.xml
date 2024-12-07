@@ -19,4 +19,15 @@
     <string name="tv_affichage">Connected</string>
     <string name="btn_profile">View profile</string>
     <string name="btn_deco">Log out</string>
+    <string name="ajouter_a_la_bd">Add to database</string>
+    <string name="view_data">View data</string>
+    <string name="add_elements">Add elements</string>
+    <string name="country">Country</string>
+    <string name="enter_name">Enter country</string>
+    <string name="city">City</string>
+    <string name="enter_city">Enter city</string>
+    <string name="age">Age</string>
+    <string name="enter_age">Enter age</string>
+    <string name="status">Status</string>
+    <string name="enter_status">Enter status</string>
 </resources>

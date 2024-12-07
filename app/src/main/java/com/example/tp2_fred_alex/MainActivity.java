@@ -2,23 +2,16 @@ package com.example.tp2_fred_alex;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.tp2_fred_alex.databinding.ActivityMainBinding;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -65,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             String mdp = tiet_mdp.getText().toString();
 
             // Vérifier si l'email et le mot de passe sont valides
-            if (Patterns.EMAIL_ADDRESS.matcher(courriel).matches() && mdp.length() >= 10) {
+            if (Patterns.EMAIL_ADDRESS.matcher(courriel).matches() && mdp.length() >= 5) {
                 bdAuth.signInWithEmailAndPassword(courriel, mdp).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser usager = bdAuth.getCurrentUser();

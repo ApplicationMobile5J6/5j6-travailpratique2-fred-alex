@@ -20,6 +20,15 @@
     <string name="tv_affichage">connecte</string>
     <string name="btn_profile">Afficher profile</string>
     <string name="btn_deco">Deconnexion profile</string>
-
-
+    <string name="ajouter_a_la_bd">Ajouter a la bd</string>
+    <string name="view_data">Afficher donnees</string>
+    <string name="add_elements">Ajouter elements</string>
+    <string name="country">Pays</string>
+    <string name="enter_name">Entrez pays</string>
+    <string name="city">Ville</string>
+    <string name="enter_city">Entrez ville</string>
+    <string name="age">Age</string>
+    <string name="enter_age">Entrez age</string>
+    <string name="status">Statut</string>
+    <string name="enter_status">Entrez statut</string>
 </resources>

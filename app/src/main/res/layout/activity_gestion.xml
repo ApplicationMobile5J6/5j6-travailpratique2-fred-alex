@@ -17,7 +17,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099" />
 
     <Button
         android:id="@+id/btn_profile"
@@ -27,8 +28,10 @@
         android:text="@string/btn_profile"
         app:layout_constraintBottom_toTopOf="@+id/btn_deco"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_affichage" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_affichage"
+        app:layout_constraintVertical_bias="0.912" />
 
     <Button
         android:id="@+id/btn_deco"
@@ -47,4 +50,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="645dp" />
+
+    <Button
+        android:id="@+id/buttonAjouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:text="@string/ajouter_a_la_bd"
+        app:layout_constraintBottom_toTopOf="@+id/btn_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_affichage"
+        app:layout_constraintVertical_bias="0.287" />
+
+    <Button
+        android:id="@+id/buttonData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/view_data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAjouter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
