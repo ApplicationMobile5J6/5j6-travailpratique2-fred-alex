@@ -4,31 +4,56 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 public class FragmentDonnees extends Fragment {
 
-    private FragmentDonneesViewModel mViewModel;
+    private static final String ARG_COUNTRY = "country";
+    private static final String ARG_CITY = "city";
+    private static final String ARG_AGE = "age";
 
-    public static FragmentDonnees newInstance() {
-        return new FragmentDonnees();
+    private String country;
+    private String city;
+    private String age;
+
+    public static FragmentDonnees newInstance(String country, String city, String age) {
+        FragmentDonnees fragment = new FragmentDonnees();
+        Bundle args = new Bundle();
+        args.putString(ARG_COUNTRY, country);
+        args.putString(ARG_CITY, city);
+        args.putString(ARG_AGE, age);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            country = getArguments().getString(ARG_COUNTRY);
+            city = getArguments().getString(ARG_CITY);
+            age = getArguments().getString(ARG_AGE);
+        }
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_fragment_donnees, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_fragment_donnees, container, false);
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(FragmentDonneesViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
+        TextView tvCountry = view.findViewById(R.id.tv_country_data);
+        TextView tvCity = view.findViewById(R.id.tv_city_data);
+        TextView tvAge = view.findViewById(R.id.tv_age_data);
+
+        tvCountry.setText("Country: " + country);
+        tvCity.setText("City: " + city);
+        tvAge.setText("Age: " + age);
+
+        return view;
+    }
 }

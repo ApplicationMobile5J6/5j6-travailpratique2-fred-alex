@@ -32,4 +32,5 @@
     <string name="enter_status">Enter status</string>
     <string name="save">Save</string>
     <string name="update_data">Update data</string>
+    <string name="delete_data">Delete data</string>
 </resources>

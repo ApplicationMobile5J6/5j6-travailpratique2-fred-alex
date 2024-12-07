@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,8 +26,8 @@ public class ActivityGestion extends AppCompatActivity {
 
     Button btn_deconnexion, btn_profile, btn_ajouter, btn_data;
     FirebaseAuth bdAuth;
-    Intent resultIntent = new Intent(ActivityGestion.this, ActivityAjout.class);
     DatabaseReference ref;
+    FirebaseDatabase bd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,7 @@ public class ActivityGestion extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        bd=FirebaseDatabase.getInstance();
 
 
         // OnClickListener pour déconnexion
@@ -102,6 +103,7 @@ public class ActivityGestion extends AppCompatActivity {
     }
     //Parcoure la liste de donnees et l'envoie a ActivityElements
     private void envoyerListeDonnees() {
+        ref=bd.getReference("Donnees");
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
