@@ -7,4 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".ActivityElements">
 
+    <ListView
+        android:id="@+id/lv_donnees"
+        android:layout_width="188dp"
+        android:layout_height="495dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fr_fragment"
+        android:layout_width="198dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintStart_toEndOf="@+id/lv_donnees"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/update_data"
+        app:layout_constraintBottom_toTopOf="@+id/fr_fragment"
+        app:layout_constraintStart_toEndOf="@+id/lv_donnees" />
 </androidx.constraintlayout.widget.ConstraintLayout>

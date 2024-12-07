@@ -57,6 +57,9 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.firebase.database)
     implementation(libs.firebase.auth)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
 
     // Test Libraries
     testImplementation("junit:junit:4.13.2")

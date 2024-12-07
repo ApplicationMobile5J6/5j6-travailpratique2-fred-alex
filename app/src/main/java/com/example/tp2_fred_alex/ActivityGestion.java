@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -12,13 +13,20 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityGestion extends AppCompatActivity {
 
-    Button btn_deconnexion;
-    Button btn_profile;
+    Button btn_deconnexion, btn_profile, btn_ajouter, btn_data;
     FirebaseAuth bdAuth;
-
+    Intent resultIntent = new Intent(ActivityGestion.this, ActivityAjout.class);
+    DatabaseReference ref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +38,8 @@ public class ActivityGestion extends AppCompatActivity {
         bdAuth = FirebaseAuth.getInstance();
         btn_deconnexion = findViewById(R.id.btn_deco);  // Assurez-vous que cet ID est correct dans le fichier XML
         btn_profile=findViewById(R.id.btn_profile);
+        btn_ajouter=findViewById(R.id.buttonAjouter);
+        btn_data= findViewById(R.id.buttonData);
         // Application des Insets pour l'espace de la barre de statut, etc.
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -51,6 +61,24 @@ public class ActivityGestion extends AppCompatActivity {
             }
         });
 
+        //OnClickListener pour afficher la page d'ajout
+        btn_ajouter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityGestion.this, ActivityAjout.class);
+                startActivity(intent);
+
+            }
+        });
+        //OnClickListener pour afficher la page d'elements
+        btn_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                envoyerListeDonnees();
+            }
+        });
+
+        //onClickListener pour afficher profile
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +95,37 @@ public class ActivityGestion extends AppCompatActivity {
                 } else {
                     Log.d("ActivityGestion", "Le mail est null, aucune donnée reçue");
                 }
+            }
+        });
+
+
+    }
+    //Parcoure la liste de donnees et l'envoie a ActivityElements
+    private void envoyerListeDonnees() {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<DonneesBD> donneesList = new ArrayList<>();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    DonneesBD donnees = snapshot.getValue(DonneesBD.class);
+                    if (donnees != null) {
+                        donneesList.add(donnees);
+                    }
+                }
+
+                if (!donneesList.isEmpty()) {
+                    Intent intent = new Intent(ActivityGestion.this, ActivityElements.class);
+                    intent.putExtra("donneesList", new ArrayList<>(donneesList));
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(ActivityGestion.this, "BD Vide", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(ActivityGestion.this, "Erreur: " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
