@@ -34,4 +34,6 @@
     <string name="save">Sauvegarder</string>
     <string name="update_data">Mise a jour</string>
     <string name="delete_data">Supprimmer</string>
+    <string name="return_to_page">Retourner</string>
+
 </resources>

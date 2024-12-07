@@ -45,4 +45,14 @@
         android:text="@string/delete_data"
         app:layout_constraintStart_toEndOf="@+id/lv_donnees"
         app:layout_constraintTop_toBottomOf="@+id/fr_fragment" />
+
+    <Button
+        android:id="@+id/btn_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="88dp"
+        android:text="@string/return_to_page"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

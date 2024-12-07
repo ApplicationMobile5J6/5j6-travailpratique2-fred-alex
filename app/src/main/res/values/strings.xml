@@ -33,4 +33,6 @@
     <string name="save">Save</string>
     <string name="update_data">Update data</string>
     <string name="delete_data">Delete data</string>
+    <string name="return_to_page">Return</string>
+
 </resources>
